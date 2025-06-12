@@ -9,6 +9,12 @@ from io import BytesIO
 
 app = FastAPI()
 
+# Добавь этот эндпоинт ниже, чтобы обрабатывать GET запросы к корню "/"
+@app.get("/")
+async def root():
+    return {"message": "API работает. Используй POST /predict/ с файлом Excel."}
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
