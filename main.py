@@ -6,6 +6,8 @@ import numpy as np
 import joblib
 import re
 from io import BytesIO
+from fastapi.responses import JSONResponse
+
 
 app = FastAPI()
 
