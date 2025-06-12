@@ -9,10 +9,12 @@ from io import BytesIO
 
 app = FastAPI()
 
-# Добавь этот эндпоинт ниже, чтобы обрабатывать GET запросы к корню "/"
 @app.get("/")
 async def root():
-    return {"message": "API работает. Используй POST /predict/ с файлом Excel."}
+    return JSONResponse(
+        content={"message": "API работает. Используй POST /predict/ с файлом Excel."},
+        media_type="application/json; charset=utf-8"
+    )
 
 
 app.add_middleware(
